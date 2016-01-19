@@ -6,7 +6,7 @@ Setting it up:
 There is a theme.yml file containing some info. Tweak these to your needs
 
 Also, add a footer to the app/config/menu.yml file like this
-footer:
+```footer:
     - label: Home
       title: This is the first menu item.
       path: homepage
@@ -17,4 +17,4 @@ footer:
       path: pages/
     - label: Contact us
       link: http://bolt.cm
-      class: last
+      class: last```
