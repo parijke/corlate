@@ -9,3 +9,16 @@ social:
   linkedin:
   gplus: https://plus.google.com/114072231166725616499
   skype:
+
+phone: +31 6 2111 3668
+
+templatefields:
+    index.twig: # Our homepage template
+        section_1_heading:
+            type: text
+        section_1_body:
+            type: html
+        section_2_heading:
+            type: text
+        section_2_body:
+            type: html
