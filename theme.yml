@@ -18,7 +18,9 @@ templatefields:
             type: text
         section_1_body:
             type: html
+            allowtwig: true
         section_2_heading:
             type: text
         section_2_body:
             type: html
+            allowtwig: true

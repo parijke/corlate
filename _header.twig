@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>404 | Corlate</title>
+    {# make sure we always display a proper title: The record's title if there is one, appended with the
+       sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+    <title>
+        {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
+            {{ app.config.get('general/sitename') }}
+        {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}
+    </title>
     <link href="{{ paths.theme }}/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ paths.theme }}/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ paths.theme }}/css/prettyPhoto.css" rel="stylesheet">
