@@ -34,11 +34,21 @@
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
                             <ul class="social-share">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <!-- <li><a href="#"><i class="fa fa-dribbble"></i></a></li> -->
-                                <!-- <li><a href="#"><i class="fa fa-skype"></i></a></li> -->
+                                {% if theme.social.facebook is not empty %}
+                                  <li><a href="{{ theme.social.facebook }}"><i class="fa fa-facebook"></i></a></li>
+                                {% endif %}
+                                {% if theme.social.twitter is not empty %}
+                                  <li><a href="{{ theme.social.twitter }}"><i class="fa fa-twitter"></i></a></li>
+                                {% endif %}
+                                {% if theme.social.linkedin is not empty %}
+                                  <li><a href="{{ theme.social.linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+                                {% endif %}
+                                {% if theme.social.gplus is not empty %}
+                                  <li><a href="{{ theme.social.gplus }}"><i class="fa fa-google-plus"></i></a></li>
+                                {% endif %}
+                                {% if theme.social.skype is not empty %}
+                                  <li><a href="{{ theme.social.skype }}"><i class="fa fa-skype"></i></a></li>
+                                {% endif %}
                             </ul>
                             <div class="search">
                                 <form role="form" method="get" action="{{ paths.root }}search" id="searchform" enctype="text/plain">
