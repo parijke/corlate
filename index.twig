@@ -1,6 +1,8 @@
-{% include '_header.twig' %}
+{% extends 'layout.twig' %}
 
-{{ record.templatefields.section_1_body }}
+{% block body %}
 
-{% include '_bottom.twig' %}
-{% include '_footer.twig' %}
+    {{ record.templatefields.section_1_body }}
+	{{ record.templatefields.section_2_body }}
+
+{% endblock %}
