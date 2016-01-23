@@ -1,6 +1,6 @@
 # corlate
 
-A theme created of from the bootstrap theme Corlate. All credits goes to https://shapebootstrap.net/
+A theme created of from the bootstrap template Corlate. All credits goes to https://shapebootstrap.net/
 
 Setting it up:
 There is a theme.yml file containing some info. Tweak these to your needs
@@ -12,11 +12,11 @@ footer:
   title: This is the first menu item.
   path: homepage
   class: first
-  label: About us
-  path: entry/1
+  label: About Us
+  path: page/About
   label: Faq
-  path: pages/
-  label: Contact us
-  link: http://bolt.cm
+  path: page/faq
+  label: Contact Us
+  path: page/contact
   class: last
 ```

@@ -1,0 +1,15 @@
+{% extends 'test/shopping.html.twig' %}
+
+{# Filling the 'layout' block defined in base template #}
+{% block layout %}
+    {% embed 'test/9-3.html.twig' %}
+        {% block content %}
+
+            My awesome content
+        {% endblock %}
+        {% block sidebar %}
+
+            My sidebar content
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
