@@ -173,11 +173,12 @@
             </div>
             <div class="col-sm-6">
                 <ul class="pull-right">
-                    {{ menu('footer', '_sub_menu.twig') }}
-                    <!-- <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Faq</a></li>
-                    <li><a href="#">Contact Us</a></li> -->
+                    {# Check if a footer menu with items exist before we output it here #}
+                    {% if app.config.get('menu/footer') is not empty %}
+                        {{ menu('footer', '_sub_menu.twig') }}
+                    {% else %}
+                        No menu defined
+                    {% endif %}
                 </ul>
             </div>
         </div>
