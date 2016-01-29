@@ -25,9 +25,7 @@
                                     <h2 class="animation animated-item-2">{{ slide.text2 }}</h2>
                                       {% set relatedrecords = slide.related() %}
                                             {% if relatedrecords is not empty %}
-                                                {% for related in relatedrecords %}
-                                                    <a class="btn-slide animation animated-item-3" href="{{ related.link }}">{{ __("Read More") }} </a>
-                                                {%  endfor %}
+                                                <a class="btn-slide animation animated-item-3" href="{{ relatedrecords|first.link }}">{{ __("Read More") }} </a>
                                             {% endif %}
                                 </div>
                             </div>
