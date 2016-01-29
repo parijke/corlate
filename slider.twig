@@ -1,12 +1,12 @@
 <section id="main-slider" class="no-margin">
         <div class="carousel slide">
 
-            {% setcontent slides = 'slides' %}
+            {% setcontent slides = 'slides' orderby 'datechanged' %}
             {# Indicators #}
             <ol class="carousel-indicators">
                 {% for slide in slides %}
                 {% if loop.first %}{% set active = 'active' %}{% else %}{% set active = '' %}{% endif %}
-                    <li data-target="#main-slider" data-slide-to="{{ loop.index }}" class="{{ active }}"></li>
+                    <li data-target="#main-slider" data-slide-to="{{ loop.index0 }}" class="{{ active }}"></li>
                 {% endfor %}
             </ol>
 
