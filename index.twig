@@ -2,7 +2,8 @@
 
 {% block body %}
 
-    {{ record.templatefields.section_1_body }}
+	{% include 'slider.twig' %}
+    {# {{ record.templatefields.section_1_body }} #}
 	{{ record.templatefields.section_2_body }}
 
 {% endblock %}

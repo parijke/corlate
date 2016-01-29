@@ -1,5 +1,7 @@
 <section id="main-slider" class="no-margin">
         <div class="carousel slide">
+
+            {% setcontent slides = 'slides' %}
             {# Indicators #}
             <ol class="carousel-indicators">
                 {% for slide in slides %}
@@ -12,27 +14,27 @@
             <div class="carousel-inner">
                 {% for slide in slides %}
                     {% if loop.first %}{% set active = 'active' %}{% else %}{% set active = '' %}{% endif %}
-                    <div class="item {{active}}" style="background-image: url({{ app.paths.files ~ slide.bgimage}})">
+                    <div class="item {{active}}" style="background-image: url({{ app.paths.files ~ slide.bgimage }})">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">{{slide.text1}}</h1>
-                                    <h2 class="animation animated-item-2">{{slide.text2}}</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">{{__('Read More')}}</a>
+                                    <h1 class="animation animated-item-1">{{ slide.text1 }}</h1>
+                                    <h2 class="animation animated-item-2">{{ slide.text2 }}</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">{{ __("Read More") }} </a>
                                 </div>
                             </div>
 
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
-                                    <img src="{{ app.paths.files ~ slide.fgimage}}" class="img-responsive">
+                                   <img src="{{ app.paths.files ~ slide.fgimage }}" class="img-responsive">
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </div><!--/.item-->
-
+                {% endfor %}
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
 

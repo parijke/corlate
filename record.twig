@@ -23,7 +23,7 @@
                     {% if record.image!="" %}
                         <div class="large-4 imageholder">
                             <a href="{{ image(value) }}">
-                                <img src="{{ thumbnail(value, 640, 480) }}">
+                                <img class="img-responsive img-blog" src="{{ thumbnail(value, 640, 480) }}">
                             </a>
                         </div>
                     {% endif %}
