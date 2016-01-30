@@ -9,10 +9,10 @@
                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
             </div>
         
-        	{% setcontent taggedrecords = 'projects' where {tags : '!'} %}
+        	{% setcontent projects = 'projects' orderby '-datechanged' %}
 			{% set tags = [] %}
-				{% for taggedrecord in taggedrecords %}
-    				{% set tags = tags|merge(taggedrecord.taxonomy.tags|default([]))%}
+				{% for project in projects %}
+    				{% set tags = tags|merge(project.taxonomy.tags|default([]))%}
 				{% endfor %}
 
             <ul class="portfolio-filter text-center">
@@ -22,7 +22,7 @@
                 {% endfor %}
             </ul><!--/#portfolio-filter-->
 
-            {% setcontent projects = 'projects' orderby '-datechanged' %}
+            
             <div class="row">
                 <div class="portfolio-items">
 
