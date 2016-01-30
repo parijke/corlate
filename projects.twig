@@ -9,20 +9,32 @@
                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
             </div>
         
-            {{dump(records)}}
+        	{% setcontent taggedrecords = 'projects' where {tags : '!'} %}
+			{% set tags = [] %}
+				{% for taggedrecord in taggedrecords %}
+    				{% set tags = tags|merge(taggedrecord.taxonomy.tags|default([]))%}
+				{% endfor %}
+
             <ul class="portfolio-filter text-center">
-                <li><a class="btn btn-default active" href="#" data-filter="*">All Works</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".bootstrap">Bootstrap</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".html">Html</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".bolt">Bolt</a></li>
+                <li><a class="btn btn-default active" href="#" data-filter="*">{{__('All Works')}}</a></li>
+                {% for value in tags %}
+                	<li><a class="btn btn-default" href="#" data-filter=".{{ value }}">{{ value}}</a></li>
+                {% endfor %}
             </ul><!--/#portfolio-filter-->
 
-            {% setcontent projects = 'projects' orderby 'datechanged' %}
+            {% setcontent projects = 'projects' orderby '-datechanged' %}
             <div class="row">
                 <div class="portfolio-items">
 
                 	{% for project in projects %}
-	                    <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3">
+                		{% set classes = '' %}
+                		{% if project.taxonomy.tags is defined %}
+                			{% for value in project.taxonomy.tags %}
+                				{% set classes = [classes, ' ' , value]|join %} 
+                			{% endfor %}
+                		{% endif %}
+
+	                    <div class="portfolio-item {{ classes|trim }} col-xs-12 col-sm-4 col-md-3">
 	                        <div class="recent-work-wrap">
 	                            <img class="img-responsive" src="{{ thumbnail(project.image, 290, 220) }}" alt="">
 	                            <div class="overlay">
