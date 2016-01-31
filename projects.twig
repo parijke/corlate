@@ -6,7 +6,7 @@
         <div class="container">
             <div class="center">
                <h2>Portfolio</h2>
-               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+               <p class="lead">Dit zijn de projecten waar we hard aan gewerkt hebben en trots op zijn!</p>
             </div>
         
         	{% setcontent projects = 'projects' orderby '-datechanged' %}
@@ -16,7 +16,7 @@
 				{% endfor %}
 
             <ul class="portfolio-filter text-center">
-                <li><a class="btn btn-default active" href="#" data-filter="*">{{__('All Works')}}</a></li>
+                <li><a class="btn btn-default active" href="#" data-filter="*">{{__('All Projects')}}</a></li>
                 {% for value in tags %}
                 	<li><a class="btn btn-default" href="#" data-filter=".{{ value }}">{{ value}}</a></li>
                 {% endfor %}
@@ -27,6 +27,7 @@
                 <div class="portfolio-items">
 
                 	{% for project in projects %}
+                		{# determine all the tags used for button creation #}
                 		{% set classes = '' %}
                 		{% if project.taxonomy.tags is defined %}
                 			{% for value in project.taxonomy.tags %}
